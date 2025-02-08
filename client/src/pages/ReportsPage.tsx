@@ -11,8 +11,14 @@ const ReportsPage = () => {
   const navigate = useNavigate()
   const { data: report, isLoading, error } = useGetReportByIdQuery(id || "");
 
-  if (isLoading) return <Spin size="large" style={{ display: "block", margin: "48px auto" }} />;
-  if (error) return <Alert message="Error" description="Failed to load report. Please try again." type="error" style={{ margin: "24px" }} />;
+  if (isLoading) 
+    return (
+      <div style={{display: "flex",justifyContent: "center",alignItems: "center",height: "100vh",width: "100vw" }}>
+        <Spin size="large" />
+      </div>
+    );
+
+    if (error) return <Alert message="Error" description="Failed to load report. Please try again." type="error" style={{ margin: "24px" }} />;
 
   return (
     <div style={{ padding: "24px", background: "#f0f2f5", minHeight: "100vh" }}>
