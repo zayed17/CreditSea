@@ -1,17 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
-import { GoogleOAuthProvider } from '@react-oauth/google';
-import { Provider } from 'react-redux'
-import store from './store/store.ts'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { Provider } from "react-redux";
+import store from "./store/store.ts";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <GoogleOAuthProvider clientId="329764453810-hgd09tink9c006t8hsmce8nosbbrt1m4.apps.googleusercontent.com">
-      <Provider store={store} >
+    <Provider store={store}>
+      <>
+        <ToastContainer position="top-right" autoClose={3000} />
         <App />
-      </Provider>
-    </GoogleOAuthProvider>
-  </StrictMode>,
-)
+      </>
+    </Provider>
+  </StrictMode>
+);

@@ -1,12 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import UploadXML from "../components/UploadXML";
+import UploadPage from "../pages/UploadPage";
+import ReportsPage from "../pages/ReportsPage";
 
 const AppRouter: React.FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<UploadXML />} />
+        <Route path="/" element={<UploadPage />} />
+        <Route path="/reports/:id" element={<ReportsPage />} />
       </Routes>
     </Router>
   );
